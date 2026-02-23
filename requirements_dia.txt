@@ -150,3 +150,4 @@ yarl==1.22.0
 datasets==2.18.0
 simplejson==3.20.2
 rotary_embedding_torch==0.8.9
+psutil
