@@ -68,9 +68,7 @@ soundfile==0.13.1
 soxr==1.0.0
 sympy==1.14.0
 threadpoolctl==3.6.0
-torch==2.8.0+cu128
 torch-complex==0.4.4
-torchaudio==2.8.0+cu128
 torchmetrics==1.8.2
 tqdm==4.67.3
 typeguard==4.5.1

@@ -132,13 +132,10 @@ timm==1.0.24
 tokenizers==0.13.3
 toml==0.10.2
 tomlkit==0.13.3
-torch==2.1.1+cu121
 torch-audiomentations==0.12.0
 torch_pitch_shift==1.2.5
-torchaudio==2.1.1+cu121
 torchlibrosa==0.1.0
 torchmetrics==1.8.2
-torchvision==0.16.1+cu121
 tqdm==4.67.3
 transformers==4.30.2
 typer==0.24.1
