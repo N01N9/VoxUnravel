@@ -49,8 +49,18 @@ if not exist .venv_dia (
     %PYTHON_CMD% -m venv .venv_dia
 )
 .venv_dia\Scripts\python.exe -m pip install --upgrade pip
+
 echo Installing PyTorch 2.1.1 for Diarization...
 .venv_dia\Scripts\python.exe -m pip install torch==2.1.1 torchvision==0.16.1 torchaudio==2.1.1 --index-url https://download.pytorch.org/whl/cu121 --no-cache-dir
+
+echo Fixing build tools for Github packages...
+.venv_dia\Scripts\python.exe -m pip install "setuptools<70.0.0" wheel flit_core
+
+echo Installing pyannote.audio and diarizen without build isolation...
+.venv_dia\Scripts\python.exe -m pip install "pyannote.audio @ git+https://github.com/BUTSpeechFIT/DiariZen.git#subdirectory=pyannote-audio" --no-build-isolation
+.venv_dia\Scripts\python.exe -m pip install "diarizen @ git+https://github.com/BUTSpeechFIT/DiariZen.git@2418425e65814cdfa5fa0ec7051b20c76bf6fa05" --no-build-isolation
+
+echo Installing remaining Diarization requirements...
 .venv_dia\Scripts\python.exe -m pip install -r requirements_dia.txt --no-cache-dir
 
 echo.

@@ -24,7 +24,6 @@ contourpy==1.2.1
 csvw==3.7.0
 cycler==0.12.1
 decorator==5.2.1
-diarizen @ git+https://github.com/BUTSpeechFIT/DiariZen.git@2418425e65814cdfa5fa0ec7051b20c76bf6fa05
 dlinfo==2.0.0
 docopt==0.6.2
 einops==0.8.2
@@ -84,7 +83,6 @@ primePy==1.3
 progressbar==2.5
 propcache==0.4.1
 protobuf==6.33.5
-pyannote.audio[dev,testing] @ git+https://github.com/BUTSpeechFIT/DiariZen.git#subdirectory=pyannote-audio
 pycparser==3.0
 pydantic==2.12.5
 pydantic_core==2.41.5
