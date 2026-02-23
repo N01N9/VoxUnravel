@@ -39,7 +39,7 @@ if not exist .venv_sep (
 )
 .venv_sep\Scripts\python.exe -m pip install --upgrade pip
 echo Installing PyTorch for Separation...
-.venv_sep\Scripts\python.exe -m pip install torch==2.8.0 torchaudio==2.8.0 --index-url https://download.pytorch.org/whl/cu121 --no-cache-dir
+.venv_sep\Scripts\python.exe -m pip install torch==2.8.0 torchaudio==2.8.0 --index-url https://download.pytorch.org/whl/cu128 --no-cache-dir
 .venv_sep\Scripts\python.exe -m pip install -r requirements_sep.txt --no-cache-dir
 
 
@@ -60,7 +60,7 @@ if not exist .venv_asr (
 )
 .venv_asr\Scripts\python.exe -m pip install --upgrade pip
 echo Installing PyTorch for ASR...
-.venv_asr\Scripts\python.exe -m pip install torch==2.8.0 torchaudio==2.8.0 --index-url https://download.pytorch.org/whl/cu121 --no-cache-dir
+.venv_asr\Scripts\python.exe -m pip install torch==2.8.0 torchaudio==2.8.0 --index-url https://download.pytorch.org/whl/cu128 --no-cache-dir
 .venv_asr\Scripts\python.exe -m pip install -r requirements_asr.txt --no-cache-dir
 
 
