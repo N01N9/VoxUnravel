@@ -1,0 +1,36 @@
+# Virtual environments
+.venv*
+.env
+
+# Pytest & caches
+__pycache__/
+*.pyc
+.pytest_cache/
+
+# Output and logs
+output_asr/
+output_diarization/
+output_*/
+results/
+logs/
+*.log
+
+# Models & Media
+pretrain/
+*.pt
+*.pth
+*.safetensors
+*.ckpt
+*.wav
+*.mp3
+*.flac
+*.mp4
+
+# IDE & OS
+.vscode/
+.idea/
+.DS_Store
+
+# Temporary files
+tmp/
+tmpdir/

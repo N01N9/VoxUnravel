@@ -1,0 +1,6 @@
+{
+    "main": ".venv_main/Scripts/python.exe",
+    "separation": ".venv_sep/Scripts/python.exe",
+    "diarization": ".venv_dia/Scripts/python.exe",
+    "asr": ".venv_asr/Scripts/python.exe"
+}
