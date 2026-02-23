@@ -13,7 +13,7 @@ from tqdm.auto import tqdm
 from numpy.typing import NDArray
 from typing import Dict
 
-from core.utils.logger import get_logger
+from core.logger import get_logger
 
 logger = get_logger()
 
