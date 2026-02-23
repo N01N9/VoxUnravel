@@ -12,7 +12,7 @@ os.environ.setdefault("NO_ALBUMENTATIONS_UPDATE", "1")
 from PySide6.QtWidgets import (QApplication, QMainWindow, QWidget, QVBoxLayout, QHBoxLayout, 
                              QLabel, QComboBox, QLineEdit, QPushButton, QCheckBox, 
                              QTextEdit, QFileDialog, QListWidget, QListWidgetItem, 
-                             QProgressBar, QMessageBox, QGroupBox, QSplitter, QTabWidget)
+                             QProgressBar, QMessageBox, QGroupBox, QSplitter, QTabWidget, QDoubleSpinBox)
 from PySide6.QtCore import Qt, QThread, Signal, Slot
 from PySide6.QtGui import QFont, QIcon, QPalette, QColor
 
@@ -68,6 +68,7 @@ class ProcessWorker(QThread):
             env_key = self.task_type
             if env_key == "inference": env_key = "separation"
             if env_key in ["pipeline", "download"]: env_key = "main"
+            if env_key == "clean": env_key = "asr"
             
             python_exe = envs.get(env_key, sys.executable)
             if not os.path.exists(python_exe) and python_exe != "python":
@@ -545,6 +546,52 @@ class MainWindow(QMainWindow):
         auto_layout.addStretch()
         
         self.tabs.addTab(auto_tab, "Auto TTS Builder")
+        
+        # --- TAB 5: Clean Dataset ---
+        clean_tab = QWidget()
+        clean_layout = QVBoxLayout(clean_tab)
+        
+        clean_info = QLabel("<b>Dataset Cleaner:</b><br>"
+                            "Removes audio files shorter than the specified duration or those with empty text transcriptions.<br>"
+                            "It also correctly cleans up <i>list.txt</i> and <i>metadata.csv</i> if they exist in the target folder.")
+        clean_info.setWordWrap(True)
+        clean_layout.addWidget(clean_info)
+        
+        clean_group = QGroupBox("Clean Settings")
+        clean_group_layout = QVBoxLayout()
+        
+        clean_dir_layout = QHBoxLayout()
+        self.clean_input_dir = QLineEdit()
+        self.clean_input_dir.setPlaceholderText("Select TTS Dataset Directory to Clean")
+        btn_clean_dir = QPushButton("Browse")
+        btn_clean_dir.clicked.connect(lambda: self.browse_generic(self.clean_input_dir, True))
+        clean_dir_layout.addWidget(QLabel("Target Directory:"))
+        clean_dir_layout.addWidget(self.clean_input_dir)
+        clean_dir_layout.addWidget(btn_clean_dir)
+        
+        clean_dur_layout = QHBoxLayout()
+        self.clean_min_dur = QDoubleSpinBox()
+        self.clean_min_dur.setRange(0.0, 10.0)
+        self.clean_min_dur.setSingleStep(0.1)
+        self.clean_min_dur.setValue(1.0)
+        clean_dur_layout.addWidget(QLabel("Min Dur (sec):"))
+        clean_dur_layout.addWidget(self.clean_min_dur)
+        clean_dur_layout.addStretch()
+        
+        clean_group_layout.addLayout(clean_dir_layout)
+        clean_group_layout.addLayout(clean_dur_layout)
+        clean_group.setLayout(clean_group_layout)
+        
+        clean_layout.addWidget(clean_group)
+        
+        self.clean_run_btn = QPushButton("CLEAN DATASET")
+        self.clean_run_btn.setFixedHeight(50)
+        self.clean_run_btn.setStyleSheet("background-color: #fca311; color: white; font-size: 16px; font-weight: bold; border-radius: 6px;")
+        self.clean_run_btn.clicked.connect(self.start_clean)
+        clean_layout.addWidget(self.clean_run_btn)
+        clean_layout.addStretch()
+        
+        self.tabs.addTab(clean_tab, "Clean Dataset")
     
         right_layout.addWidget(QLabel("Progress:"))
         self.progress_bar = QProgressBar()
@@ -850,6 +897,37 @@ class MainWindow(QMainWindow):
     def on_auto_error(self, err_msg):
         self.append_log(f"Pipeline Error: {err_msg}")
         self.auto_run_btn.setEnabled(True)
+
+    def start_clean(self):
+        target_dir = self.clean_input_dir.text().strip()
+        if not target_dir or not os.path.isdir(target_dir):
+            QMessageBox.warning(self, "Error", "Invalid dataset directory.")
+            return
+            
+        config = {
+            "target_dir": target_dir,
+            "min_duration": self.clean_min_dur.value()
+        }
+        
+        self.clean_run_btn.setEnabled(False)
+        self.progress_bar.setValue(0)
+        self.append_log(f">>> Cleaning Dataset in {target_dir}...")
+        
+        self.worker = ProcessWorker("clean", config)
+        self.worker.progress.connect(self.progress_bar.setValue)
+        self.worker.log.connect(self.append_log)
+        self.worker.task_success.connect(self.on_clean_finished)
+        self.worker.error.connect(self.on_clean_error)
+        self.worker.start()
+
+    def on_clean_finished(self):
+        self.progress_bar.setValue(100)
+        self.clean_run_btn.setEnabled(True)
+        QMessageBox.information(self, "Finished", "Dataset cleaning completed.")
+
+    def on_clean_error(self, err_msg):
+        self.append_log(f"Cleaner Error: {err_msg}")
+        self.clean_run_btn.setEnabled(True)
 
     @Slot(int)
     def on_tab_changed(self, index):

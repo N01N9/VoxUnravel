@@ -384,6 +384,23 @@ def run_asr(config: dict, progress_callback=None):
             print(f"PROGRESS_UPDATE:{int((idx + 1) / len(input_files) * 100)}", flush=True)
     logger.info("ASR completed successfully.")
 
+def run_cleaner(config: dict, progress_callback=None):
+    try:
+        from core.cleaner import DatasetCleaner
+        cleaner = DatasetCleaner(
+            target_dir=config["target_dir"],
+            min_duration=config.get("min_duration", 1.0),
+            logger=logger
+        )
+        cleaner.run_all()
+        if progress_callback:
+            progress_callback(100)
+        else:
+            print("PROGRESS_UPDATE:100", flush=True)
+        logger.info("Dataset cleaner finished successfully.")
+    except Exception as e:
+        logger.error(f"Cleaner failed: {e}")
+
 def run_inference_api(config: dict, progress_callback=None):
     class Args:
         def __init__(self, **entries):
@@ -516,7 +533,7 @@ def main():
     asr_parser.add_argument("--model_type", type=str, default="whisper", choices=["whisper", "owsmv4"], help="ASR Model to use: whisper or owsmv4")
 
     json_parser = subparsers.add_parser("json_api", help="Run via JSON config (Internal IPC)")
-    json_parser.add_argument("--task", type=str, required=True, choices=["inference", "diarization", "asr", "pipeline", "download"])
+    json_parser.add_argument("--task", type=str, required=True, choices=["inference", "diarization", "asr", "pipeline", "download", "clean"])
     json_parser.add_argument("--config", type=str, required=True, help="JSON string config")
 
     args = parser.parse_args()
@@ -562,6 +579,8 @@ def main():
             run_diarization(config)
         elif args.task == "asr":
             run_asr(config)
+        elif args.task == "clean":
+            run_cleaner(config)
         elif args.task == "download":
             def prog(pct):
                 print(f"PROGRESS_UPDATE:{pct}", flush=True)
