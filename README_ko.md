@@ -5,10 +5,10 @@
 
 [![Python 3.11](https://img.shields.io/badge/python-3.11-blue.svg)](https://www.python.org/downloads/release/python-3110/)
 [![Platform](https://img.shields.io/badge/platform-Windows%20%7C%20Linux-lightgrey)](#)
-[![Colab](https://colab.research.google.com/assets/colab-badge.svg)](run_colab.ipynb)
+[![Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/N01N9/VoxUnravel/blob/main/run_colab.ipynb)
 [![License: GPL v3 (Non-Commercial)](https://img.shields.io/badge/License-GPLv3%20(Non--Commercial)-red.svg)](https://www.gnu.org/licenses/gpl-3.0)
 
-[English](README.md) • [한국어](#한국어)
+[English](README.md) • [한국어](README_ko.md)
 
 </div>
 
@@ -74,7 +74,7 @@
 
 ### ☁️ Google Colab 환경 설치
 고성능 GPU가 없으신가요? 문제 없습니다! VoxUnravel은 Google Colab 환경을 완벽하게 지원합니다.
-1. Google Colab에서 [`run_colab.ipynb`](run_colab.ipynb) 파일을 엽니다.
+1. Google Colab에서 [`run_colab.ipynb`](https://colab.research.google.com/github/N01N9/VoxUnravel/blob/main/run_colab.ipynb) 파일을 엽니다.
 2. 노트북 셀(Cell)의 설명에 따라 리포지토리를 가져오고 `install_colab.sh`를 실행한 후, **Gradio**를 통해 웹 GUI를 실행하세요.
 
 ---
