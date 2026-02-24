@@ -29,8 +29,8 @@ if [ ! -d ".venv_sep" ]; then
     $PYTHON_CMD -m venv .venv_sep
 fi
 .venv_sep/bin/python -m pip install --upgrade pip
-echo "Installing PyTorch for Separation (Linux CUDA 12.1)..."
-.venv_sep/bin/python -m pip install torch==2.1.1 torchaudio==2.1.1 --index-url https://download.pytorch.org/whl/cu121 --no-cache-dir
+echo "Installing PyTorch for Separation (Linux CUDA 12.8)..."
+.venv_sep/bin/python -m pip install torch==2.8.0 torchaudio==2.8.0 --index-url https://download.pytorch.org/whl/cu128 --no-cache-dir
 .venv_sep/bin/python -m pip install -r requirements_sep.txt --no-cache-dir
 
 # [span_7](start_span)[3/5] 화자 분리 환경 설정 (.venv_dia)[span_7](end_span)
@@ -56,7 +56,7 @@ if [ ! -d ".venv_asr" ]; then
     $PYTHON_CMD -m venv .venv_asr
 fi
 .venv_asr/bin/python -m pip install --upgrade pip
-.venv_asr/bin/python -m pip install torch==2.1.1 torchaudio==2.1.1 --index-url https://download.pytorch.org/whl/cu121 --no-cache-dir
+.venv_asr/bin/python -m pip install torch==2.8.0 torchaudio==2.8.0 --index-url https://download.pytorch.org/whl/cu128 --no-cache-dir
 .venv_asr/bin/python -m pip install -r requirements_asr.txt --no-cache-dir
 
 # [span_9](start_span)[5/5] data/environments.json 설정 (리눅스 경로 적용)[span_9](end_span)

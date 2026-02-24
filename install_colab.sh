@@ -34,21 +34,21 @@ $BASE_PATH/.venv_main/bin/python -m pip install -r requirements_main.txt --no-ca
 
 # [2/5] Separation 환경 설정
 setup_venv ".venv_sep"
-$BASE_PATH/.venv_sep/bin/python -m pip install torch==2.1.1 torchaudio==2.1.1 --index-url https://download.pytorch.org/whl/cu121
-$BASE_PATH/.venv_sep/bin/python -m pip install -r requirements_sep.txt
+$BASE_PATH/.venv_sep/bin/python -m pip install torch==2.8.0 torchaudio==2.8.0 --index-url https://download.pytorch.org/whl/cu128 --no-cache-dir
+$BASE_PATH/.venv_sep/bin/python -m pip install -r requirements_sep.txt --no-cache-dir
 
 # [3/5] Diarization 환경 설정
 setup_venv ".venv_dia"
-$BASE_PATH/.venv_dia/bin/python -m pip install torch==2.1.1 torchvision==0.16.1 torchaudio==2.1.1 --index-url https://download.pytorch.org/whl/cu121
-$BASE_PATH/.venv_dia/bin/python -m pip install "setuptools<70.0.0" flit_core
+$BASE_PATH/.venv_dia/bin/python -m pip install torch==2.1.1 torchvision==0.16.1 torchaudio==2.1.1 --index-url https://download.pytorch.org/whl/cu121 --no-cache-dir
+$BASE_PATH/.venv_dia/bin/python -m pip install "setuptools<70.0.0" wheel flit_core
 $BASE_PATH/.venv_dia/bin/python -m pip install "pyannote.audio @ git+https://github.com/BUTSpeechFIT/DiariZen.git#subdirectory=pyannote-audio" --no-build-isolation
 $BASE_PATH/.venv_dia/bin/python -m pip install "diarizen @ git+https://github.com/BUTSpeechFIT/DiariZen.git@2418425e65814cdfa5fa0ec7051b20c76bf6fa05" --no-build-isolation
-$BASE_PATH/.venv_dia/bin/python -m pip install -r requirements_dia.txt
+$BASE_PATH/.venv_dia/bin/python -m pip install -r requirements_dia.txt --no-cache-dir
 
 # [4/5] ASR 환경 설정
 setup_venv ".venv_asr"
-$BASE_PATH/.venv_asr/bin/python -m pip install torch==2.1.1 torchaudio==2.1.1 --index-url https://download.pytorch.org/whl/cu121
-$BASE_PATH/.venv_asr/bin/python -m pip install -r requirements_asr.txt
+$BASE_PATH/.venv_asr/bin/python -m pip install torch==2.8.0 torchaudio==2.8.0 --index-url https://download.pytorch.org/whl/cu128 --no-cache-dir
+$BASE_PATH/.venv_asr/bin/python -m pip install -r requirements_asr.txt --no-cache-dir
 
 # [5/5] data/environments.json 생성 (코랩 절대 경로 적용)
 mkdir -p data

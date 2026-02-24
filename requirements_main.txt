@@ -3,4 +3,4 @@ PySide6_Addons==6.10.2
 PySide6_Essentials==6.10.2
 shiboken6==6.10.2
 colorama==0.4.6
-gradio==4.50.2
+gradio==4.44.1
