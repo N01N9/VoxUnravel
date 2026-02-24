@@ -1,4 +1,4 @@
-# VoxUnravel - MSST
+# VoxUnravel
 
 VoxUnravel is a powerful, integrated GUI application designed for comprehensive audio processing and automated Text-to-Speech (TTS) dataset creation. By uniting various state-of-the-art AI models under a single interface, VoxUnravel simplifies complex workflows like vocal extraction, speaker diarization, and automatic speech recognition (ASR) into an intuitive, user-friendly experience.
 
@@ -55,3 +55,4 @@ This project integrates several open-source audio processing models and tools. P
 - Whisper (OpenAI)
 - OWSM-CTC
 - Music Source Separation Training (MSST) models
+
