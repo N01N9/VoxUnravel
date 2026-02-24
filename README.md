@@ -5,7 +5,7 @@
 
 [![Python 3.11](https://img.shields.io/badge/python-3.11-blue.svg)](https://www.python.org/downloads/release/python-3110/)
 [![Platform](https://img.shields.io/badge/platform-Windows%20%7C%20Linux-lightgrey)](#)
-[![Colab](https://colab.research.google.com/assets/colab-badge.svg)](run_colab.ipynb)
+[![Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/N01N9/VoxUnravel/blob/main/run_colab.ipynb)
 [![License: GPL v3 (Non-Commercial)](https://img.shields.io/badge/License-GPLv3%20(Non--Commercial)-red.svg)](https://www.gnu.org/licenses/gpl-3.0)
 
 [English](#english) • [한국어](#한국어)
@@ -74,7 +74,7 @@ The installation scripts automatically create **four independent virtual environ
 
 ### ☁️ Google Colab Installation
 Don't have a high-end GPU? No problem! VoxUnravel fully supports Google Colab.
-1. Open [`run_colab.ipynb`](run_colab.ipynb) in Google Colab.
+1. Open [`run_colab.ipynb`](https://colab.research.google.com/github/N01N9/VoxUnravel/blob/main/run_colab.ipynb) in Google Colab.
 2. Follow the cell instructions to pull the repo, run `install_colab.sh`, and launch the Web GUI via **Gradio**.
 
 ---
