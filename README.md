@@ -13,8 +13,8 @@ VoxUnravel is a powerful, integrated GUI application designed for comprehensive 
 ## 🛠 Prerequisites
 
 - Windows Operating System
-- **Python 3.11** (must be installed and added to PATH)
-- A CUDA-compatible NVIDIA GPU is highly recommended for reasonable processing times.
+- **Python 3.11**, **FFMPEG** (must be installed and added to PATH)
+- A CUDA-compatible 16G+ vram NVIDIA GPU is highly recommended for reasonable processing times.
 
 ## 🚀 Installation
 
@@ -55,4 +55,5 @@ This project integrates several open-source audio processing models and tools. P
 - Whisper (OpenAI)
 - OWSM-CTC
 - Music Source Separation Training (MSST) models
+
 
