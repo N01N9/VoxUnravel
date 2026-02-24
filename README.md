@@ -5,7 +5,7 @@
 
 [![Python 3.11](https://img.shields.io/badge/python-3.11-blue.svg)](https://www.python.org/downloads/release/python-3110/)
 [![Platform](https://img.shields.io/badge/platform-Windows%20%7C%20Linux-lightgrey)](#)
-[![Colab](https://colab.research.google.com/github/N01N9/VoxUnravel/blob/main/run_colab.ipynb)]
+[![Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/N01N9/VoxUnravel/blob/main/run_colab.ipynb)
 [![License: GPL v3 (Non-Commercial)](https://img.shields.io/badge/License-GPLv3%20(Non--Commercial)-red.svg)](https://www.gnu.org/licenses/gpl-3.0)
 
 [English](README.md) • [한국어](README_ko.md)
@@ -149,6 +149,7 @@ To prevent any subsequent legal disputes or licensing conflicts, **any commercia
 <div align="center">
   <i>Created with ❤️ for the AI Voice Community.</i>
 </div>
+
 
 
 
