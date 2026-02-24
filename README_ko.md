@@ -6,7 +6,7 @@
 [![Python 3.11](https://img.shields.io/badge/python-3.11-blue.svg)](https://www.python.org/downloads/release/python-3110/)
 [![Platform](https://img.shields.io/badge/platform-Windows%20%7C%20Linux-lightgrey)](#)
 [![Colab](https://colab.research.google.com/assets/colab-badge.svg)](run_colab.ipynb)
-[![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
+[![License: GPL v3 (Non-Commercial)](https://img.shields.io/badge/License-GPLv3%20(Non--Commercial)-red.svg)](https://www.gnu.org/licenses/gpl-3.0)
 
 [English](README.md) • [한국어](#한국어)
 
@@ -138,10 +138,12 @@ VoxUnravel/
 - [Whisper](https://github.com/openai/whisper) by OpenAI (MIT)
 - [ESPnet (OWSM-CTC)](https://github.com/espnet/espnet) by ESPnet (Apache 2.0)
 
-### 📌 프로젝트 라이선스: GPL-3.0
+### 📌 프로젝트 라이선스: GPL-3.0 (비상업적 용도 전용)
 이 프로젝트에 통합된 다양한 라이브러리들 중 가장 엄격한 제약 조건을 가진 라이선스(특히 코어 GUI 프레임워크인 PySide6의 카피레프트 조항)를 준수하기 위하여, **VoxUnravel** 소스 코드는 공식적으로 **GNU General Public License v3.0 (GPL-3.0)** 하에 배포됩니다.
 
-*상업적 목적으로 VoxUnravel을 통해 생성한 데이터를 사용하려 하신다면, 위 해당 리포지토리의 AI 모델들이 가지는 개별 라이선스 조항을 반드시 준수해 주시길 바랍니다.*
+**🚨 [필독] 상업적 이용 절대 금지 안내**
+본 프로젝트는 내부적으로 화자 분할을 위해 **DiariZen** 모델을 사용합니다. 해당 모델의 사전 학습된 가중치(Pre-trained Weights)는 **CC BY-NC 4.0** 라이선스가 적용되어 있어 어떠한 형태의 **상업적 이용도 엄격히 금지**되어 있습니다.
+따라서 이로 인한 모든 법적 논란 및 충돌을 미연에 방지하고자, **VoxUnravel 프로그램 자체 및 본 프로그램을 통해 생성된 모든 오디오/텍스트 데이터의 상업적 이용을 절대 금지합니다.** 오직 개인적인 용도나 연구 목적으로만 자유롭게 사용해 주시길 바랍니다.
 
 ---
 <div align="center">

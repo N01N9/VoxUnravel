@@ -6,7 +6,7 @@
 [![Python 3.11](https://img.shields.io/badge/python-3.11-blue.svg)](https://www.python.org/downloads/release/python-3110/)
 [![Platform](https://img.shields.io/badge/platform-Windows%20%7C%20Linux-lightgrey)](#)
 [![Colab](https://colab.research.google.com/assets/colab-badge.svg)](run_colab.ipynb)
-[![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
+[![License: GPL v3 (Non-Commercial)](https://img.shields.io/badge/License-GPLv3%20(Non--Commercial)-red.svg)](https://www.gnu.org/licenses/gpl-3.0)
 
 [English](#english) • [한국어](#한국어)
 
@@ -138,10 +138,12 @@ VoxUnravel strongly believes in the power of open-source software and is built u
 - [Whisper](https://github.com/openai/whisper) by OpenAI (MIT)
 - [ESPnet (OWSM-CTC)](https://github.com/espnet/espnet) by ESPnet (Apache 2.0)
 
-### 📌 Project License: GPL-3.0
+### 📌 Project License: GPL-3.0 (Non-Commercial)
 To conform to the most restrictive licensing requirements among its dependencies (specifically to respect the copyleft stipulations inherited from PySide6), the **VoxUnravel** source code is officially bounded by and distributed under the **GNU General Public License v3.0 (GPL-3.0)**. 
 
-*Please ensure you comply with the respective licenses of the referenced AI models and datasets if you plan to use VoxUnravel generated data commercially.*
+**🚨 [MANDATORY] NO COMMERCIAL USE ALLOWED**
+This project inherently relies on **DiariZen** models for speaker diarization. The pre-trained weights for these models are licensed under **CC BY-NC 4.0**, strictly prohibiting any form of commercial use. 
+To prevent any subsequent legal disputes or licensing conflicts, **any commercial use of VoxUnravel—inclusive of the application code itself and any audio/text datasets generated through it—is strictly prohibited.** Please feel free to use it *exclusively* for personal projects or research purposes.
 
 ---
 <div align="center">
