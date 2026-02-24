@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VoxUnravel - Audio Processing Demo</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-color: #0d1117;
+            --container-bg: #161b22;
+            --text-primary: #c9d1d9;
+            --text-secondary: #8b949e;
+            --accent-color: #58a6ff;
+            --border-color: #30363d;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-primary);
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+        }
+
+        header {
+            text-align: center;
+            padding: 4rem 1rem 2rem;
+            background: linear-gradient(180deg, rgba(88,166,255,0.1) 0%, transparent 100%);
+        }
+
+        h1 {
+            font-weight: 800;
+            font-size: 3rem;
+            margin: 0;
+            background: -webkit-linear-gradient(#58a6ff, #3fb950);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        p.subtitle {
+            font-size: 1.2rem;
+            color: var(--text-secondary);
+            max-width: 600px;
+            margin: 1rem auto;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .demo-section {
+            background-color: var(--container-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 2rem;
+            margin-bottom: 3rem;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.5);
+        }
+
+        .demo-section h2 {
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 0.5rem;
+            margin-top: 0;
+        }
+
+        .video-container {
+            width: 100%;
+            border-radius: 8px;
+            overflow: hidden;
+            margin: 1.5rem 0;
+            background-color: #000;
+        }
+
+        video {
+            width: 100%;
+            display: block;
+        }
+
+        .audio-item {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background-color: #21262d;
+            padding: 1rem 1.5rem;
+            border-radius: 8px;
+            margin-bottom: 1rem;
+            border: 1px solid var(--border-color);
+            transition: transform 0.2s ease;
+        }
+
+        .audio-item:hover {
+            transform: translateY(-2px);
+            border-color: var(--accent-color);
+        }
+
+        .speaker-info {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .speaker-name {
+            font-weight: 600;
+            color: #fff;
+            margin-bottom: 0.2rem;
+        }
+
+        .speaker-text {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            font-style: italic;
+        }
+
+        audio {
+            height: 40px;
+            width: 300px;
+        }
+
+        footer {
+            text-align: center;
+            padding: 3rem;
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            border-top: 1px solid var(--border-color);
+            margin-top: 4rem;
+        }
+
+        a {
+            color: var(--accent-color);
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        /* Responsive */
+        @media (max-width: 600px) {
+            .audio-item {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            audio {
+                width: 100%;
+                margin-top: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>🎧 VoxUnravel Demo</h1>
+        <p class="subtitle">Experience the power of automated Vocal Separation, Diarization, and ASR in one click.</p>
+        <a href="https://github.com/N01N9/VoxUnravel" target="_blank" style="display: inline-block; margin-top: 1rem; padding: 0.6rem 1.5rem; background-color: #238636; color: white; border-radius: 6px; font-weight: bold;">View on GitHub</a>
+    </header>
+
+    <div class="container">
+        
+        <!-- 단계 1: 원본 비디오 -->
+        <div class="demo-section">
+            <h2>1. Original Source Video</h2>
+            <p>원본 영상입니다. 배경음악과 여러 사람의 목소리가 섞여 있습니다.</p>
+            <div class="video-container">
+                <!-- 변경점: 여기에 원본 영상 파일 이름을 넣으세요 -->
+                <video controls>
+                    <source src="assets/original_video.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+        </div>
+
+        <!-- 단계 2: 추출 및 분할된 음성 (TTS 데이터셋 형태) -->
+        <div class="demo-section">
+            <h2>2. Extracted & Cleaned TTS Dataset</h2>
+            <p>VoxUnravel 파이프라인(분리 ➔ 분할 ➔ ASR ➔ 클리닝)을 거쳐 최종적으로 추출된 화자별 음성 데이터입니다.</p>
+            
+            <!-- 오디오 샘플 1 -->
+            <div class="audio-item">
+                <div class="speaker-info">
+                    <span class="speaker-name">🗣️ Speaker_00 (화자 1)</span>
+                    <span class="speaker-text">"추출된 텍스트 자막을 여기에 적어보세요(ASR 결과)"</span>
+                </div>
+                <!-- 변경점: 여기에 분리된 오디오 파일 경로를 넣으세요 -->
+                <audio controls>
+                    <source src="assets/speaker_00_sample1.wav" type="audio/wav">
+                </audio>
+            </div>
+
+            <!-- 오디오 샘플 2 -->
+            <div class="audio-item">
+                <div class="speaker-info">
+                    <span class="speaker-name">🗣️ Speaker_01 (화자 2)</span>
+                    <span class="speaker-text">"두 번째 사람의 음성 인식 결과입니다."</span>
+                </div>
+                <!-- 변경점: 여기에 분리된 오디오 파일 경로를 넣으세요 -->
+                <audio controls>
+                    <source src="assets/speaker_01_sample1.wav" type="audio/wav">
+                </audio>
+            </div>
+
+            <!-- 오디오 샘플 3 -->
+            <div class="audio-item">
+                <div class="speaker-info">
+                    <span class="speaker-name">🎵 Background / Instrumental</span>
+                    <span class="speaker-text">(추출되고 남은 깨끗한 배경 음악)</span>
+                </div>
+                <!-- 변경점: 여기에 분리된 오디오 파일 경로를 넣으세요 -->
+                <audio controls>
+                    <source src="assets/instrumental.wav" type="audio/wav">
+                </audio>
+            </div>
+
+        </div>
+    </div>
+
+    <footer>
+        <p>Built with ❤️ by <a href="https://github.com/N01N9">N01N9</a> | Licensed under GPL-3.0 (Non-Commercial)</p>
+    </footer>
+
+</body>
+</html>

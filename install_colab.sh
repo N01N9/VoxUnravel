@@ -48,6 +48,7 @@ $BASE_PATH/.venv_dia/bin/python -m pip install -r requirements_dia.txt --no-cach
 # [4/5] ASR 환경 설정
 setup_venv ".venv_asr"
 $BASE_PATH/.venv_asr/bin/python -m pip install torch==2.8.0 torchaudio==2.8.0 --index-url https://download.pytorch.org/whl/cu128 --no-cache-dir
+$BASE_PATH/.venv_asr/bin/python -m pip install wheels/pyworld-0.3.5-cp311-cp311-linux_x86_64.whl --no-cache-dir
 $BASE_PATH/.venv_asr/bin/python -m pip install -r requirements_asr.txt --no-cache-dir
 
 # [5/5] data/environments.json 생성 (코랩 절대 경로 적용)
