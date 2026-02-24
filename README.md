@@ -8,7 +8,7 @@
 [![Colab](https://colab.research.google.com/assets/colab-badge.svg)]((https://colab.research.google.com/github/N01N9/VoxUnravel/blob/main/run_colab.ipynb))
 [![License: GPL v3 (Non-Commercial)](https://img.shields.io/badge/License-GPLv3%20(Non--Commercial)-red.svg)](https://www.gnu.org/licenses/gpl-3.0)
 
-[English](#english) • [한국어](#한국어)
+[English](README.md) • [한국어](README_ko.md)
 
 </div>
 
@@ -149,4 +149,5 @@ To prevent any subsequent legal disputes or licensing conflicts, **any commercia
 <div align="center">
   <i>Created with ❤️ for the AI Voice Community.</i>
 </div>
+
 
