@@ -1,0 +1,66 @@
+
+            <!-- Speaker_0 -->
+            <div class="audio-item">
+                <div class="speaker-info">
+                    <span class="speaker-name">🗣️ Speaker_0 (무전 내용)</span>
+                    <span class="speaker-text">"Transport 66B, please relay confirm codes. I've got you on the computer but not on the dialog. What is your haul over?"</span>
+                </div>
+                <audio controls>
+                    <source src="assets/speakers_merged/Speaker_0_merged.wav" type="audio/wav">
+                </audio>
+            </div>
+
+            <!-- Speaker_1 -->
+            <div class="audio-item">
+                <div class="speaker-info">
+                    <span class="speaker-name">🗣️ Speaker_1 (브루스 배너/헐크)</span>
+                    <span class="speaker-text">"is that Moe, isn't it? What are we, a team? No, no, no. We're a chemical mixture that makes chaos. We're a time bomb. Yeah, this is a team. You rented my room. In case you needed to kill me, but you can't. I know, I tried. I got low. I didn't see an end, so I put a bullet in my mouth, and the other guy spit it out. So I moved on. I focused on helping other people. I was good until you dragged me back into this freak show and put everyone here at risk. You wanna know my secret, Agent Romanoff? You wanna know how I stay calm? Sorry kids, you don't get to see my party trick after all."</span>
+                </div>
+                <audio controls>
+                    <source src="assets/speakers_merged/Speaker_1_merged.wav" type="audio/wav">
+                </audio>
+            </div>
+
+            <!-- Speaker_2 -->
+            <div class="audio-item">
+                <div class="speaker-info">
+                    <span class="speaker-name">🗣️ Speaker_2 (토니 스타크/아이언맨)</span>
+                    <span class="speaker-text">"Why shouldn't a guy let off a little steam? I'm starting to want you to make me. Genius billionaire playboy philanthropist. I think I would just cut the wire. You're a laboratory experiment, Rogers. Everything special about you came out of a bottle. get there fast. their fastest tesseract belongs on out of god no human is a match you're not going alone You're not going to stop me? Put on the suit, let's find out. I'm not afraid to hit an old man. Put on the suit."</span>
+                </div>
+                <audio controls>
+                    <source src="assets/speakers_merged/Speaker_2_merged.wav" type="audio/wav">
+                </audio>
+            </div>
+
+            <!-- Speaker_3 -->
+            <div class="audio-item">
+                <div class="speaker-info">
+                    <span class="speaker-name">🗣️ Speaker_3 (토르/로키)</span>
+                    <span class="speaker-text">"You speak of control, yet you cause chaos. You people are so petty. and tiny. Located at the Tesseract. Put on the suit. Yep."</span>
+                </div>
+                <audio controls>
+                    <source src="assets/speakers_merged/Speaker_3_merged.wav" type="audio/wav">
+                </audio>
+            </div>
+
+            <!-- Speaker_4 -->
+            <div class="audio-item">
+                <div class="speaker-info">
+                    <span class="speaker-name">🗣️ Speaker_4 (스티브 로저스/캡틴 아메리카)</span>
+                    <span class="speaker-text">"Arms and ammunition, over. You know damn well why. Back off. Big man in a suit of armor. Take that off. What are you? I know guys with none of that worth 10 of you. I've seen the footage. The only thing you really fight for is yourself. You're not the guy to make the sacrifice play. To lay down on a wire and let the other guy crawl over you? Always a way out. You know, you may not be a threat, but you better stop pretending to be a hero. Put on the suit. Let's go a few rounds. Agent Romanoff, would you escort Dr. Banner back to his room? The sale was just in case. Dr. Banner. Put down the scepter. I want all of you... I want all of you. You're not going alone. Put on the suit. Let's find out. Oh my god."</span>
+                </div>
+                <audio controls>
+                    <source src="assets/speakers_merged/Speaker_4_merged.wav" type="audio/wav">
+                </audio>
+            </div>
+
+            <!-- Unknown_0 -->
+            <div class="audio-item">
+                <div class="speaker-info">
+                    <span class="speaker-name">🗣️ Unknown_0 (기타 소음/알수없음)</span>
+                    <span class="speaker-text">"We're missing about a ton. It's time to call it a day. the team. Well. Thank you. Thank you."</span>
+                </div>
+                <audio controls>
+                    <source src="assets/speakers_merged/Unknown_0_merged.wav" type="audio/wav">
+                </audio>
+            </div>

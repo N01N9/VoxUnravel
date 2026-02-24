@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html lang="ko">
+<html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -27,7 +28,7 @@
         header {
             text-align: center;
             padding: 4rem 1rem 2rem;
-            background: linear-gradient(180deg, rgba(88,166,255,0.1) 0%, transparent 100%);
+            background: linear-gradient(180deg, rgba(88, 166, 255, 0.1) 0%, transparent 100%);
         }
 
         h1 {
@@ -58,7 +59,7 @@
             border-radius: 12px;
             padding: 2rem;
             margin-bottom: 3rem;
-            box-shadow: 0 8px 24px rgba(0,0,0,0.5);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
         }
 
         .demo-section h2 {
@@ -82,12 +83,12 @@
 
         .audio-item {
             display: flex;
-            align-items: center;
-            justify-content: space-between;
+            flex-direction: column;
+            align-items: flex-start;
             background-color: #21262d;
-            padding: 1rem 1.5rem;
+            padding: 1.5rem;
             border-radius: 8px;
-            margin-bottom: 1rem;
+            margin-bottom: 1.5rem;
             border: 1px solid var(--border-color);
             transition: transform 0.2s ease;
         }
@@ -100,23 +101,30 @@
         .speaker-info {
             display: flex;
             flex-direction: column;
+            width: 100%;
+            margin-bottom: 1.2rem;
         }
 
         .speaker-name {
             font-weight: 600;
             color: #fff;
-            margin-bottom: 0.2rem;
+            margin-bottom: 0.5rem;
+            font-size: 1.1rem;
         }
 
         .speaker-text {
-            font-size: 0.9rem;
+            font-size: 0.95rem;
             color: var(--text-secondary);
             font-style: italic;
+            line-height: 1.5;
+            word-break: break-all;
+            word-wrap: break-word;
         }
 
         audio {
             height: 40px;
-            width: 300px;
+            width: 100%;
+            outline: none;
         }
 
         footer {
@@ -137,78 +145,150 @@
             text-decoration: underline;
         }
 
-        /* Responsive */
         @media (max-width: 600px) {
-            .audio-item {
-                flex-direction: column;
-                align-items: flex-start;
-            }
-            audio {
-                width: 100%;
-                margin-top: 1rem;
+            .container {
+                padding: 1rem;
             }
         }
     </style>
 </head>
+
 <body>
 
     <header>
         <h1>🎧 VoxUnravel Demo</h1>
         <p class="subtitle">Experience the power of automated Vocal Separation, Diarization, and ASR in one click.</p>
-        <a href="https://github.com/N01N9/VoxUnravel" target="_blank" style="display: inline-block; margin-top: 1rem; padding: 0.6rem 1.5rem; background-color: #238636; color: white; border-radius: 6px; font-weight: bold;">View on GitHub</a>
+        <a href="https://github.com/N01N9/VoxUnravel" target="_blank"
+            style="display: inline-block; margin-top: 1rem; padding: 0.6rem 1.5rem; background-color: #238636; color: white; border-radius: 6px; font-weight: bold;">View
+            on GitHub</a>
     </header>
 
     <div class="container">
-        
-        <!-- 단계 1: 원본 비디오 -->
+
+        <!-- Step 1: Original Source Video -->
         <div class="demo-section">
             <h2>1. Original Source Video</h2>
-            <p>원본 영상입니다. 배경음악과 여러 사람의 목소리가 섞여 있습니다.</p>
-            <div class="video-container">
-                <!-- 변경점: 여기에 원본 영상 파일 이름을 넣으세요 -->
-                <video controls>
-                    <source src="assets/original_video.mp4" type="video/mp4">
-                    Your browser does not support the video tag.
-                </video>
+            <p>The original source video clip. The audio track contains heavy cinematic background music mixed with
+                overlapping dialogue from multiple characters.<br>
+                <small style="color: var(--text-secondary);"><strong>Citation/Source:</strong> <a
+                        href="https://www.youtube.com/watch?v=bQN5yTHn-pM" target="_blank">The Avengers (2012) - Marvel
+                        Studios</a>. Processing demo strictly for educational & research purposes.</small>
+            </p>
+            <div class="video-container"
+                style="padding: 0; position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; background-color: #000; border: 1px solid var(--border-color); border-radius: 8px;">
+                <a href="https://www.youtube.com/watch?v=bQN5yTHn-pM" target="_blank"
+                    style="display: block; width: 100%; height: 100%; position: absolute; top: 0; left: 0;">
+                    <img src="https://img.youtube.com/vi/bQN5yTHn-pM/maxresdefault.jpg" alt="Video Thumbnail"
+                        style="width: 100%; height: 100%; object-fit: cover; opacity: 0.8; transition: opacity 0.2s;">
+                    <div
+                        style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); background: rgba(0,0,0,0.7); padding: 15px 30px; border-radius: 8px; color: white; font-weight: bold; font-size: 1.2rem; display: flex; align-items: center; gap: 10px;">
+                        ▶ Watch on YouTube
+                    </div>
+                </a>
             </div>
         </div>
 
-        <!-- 단계 2: 추출 및 분할된 음성 (TTS 데이터셋 형태) -->
+        <!-- Step 2: Extracted & Cleaned TTS Dataset -->
         <div class="demo-section">
             <h2>2. Extracted & Cleaned TTS Dataset</h2>
-            <p>VoxUnravel 파이프라인(분리 ➔ 분할 ➔ ASR ➔ 클리닝)을 거쳐 최종적으로 추출된 화자별 음성 데이터입니다.</p>
-            
-            <!-- 오디오 샘플 1 -->
+            <p>The final processed audio data organized by speaker, generated automatically through the
+                <strong>VoxUnravel pipeline</strong> (Vocal Separation ➔ Speaker Diarization ➔ ASR ➔ Dataset Cleaning).
+            </p>
+
+
+            <!-- Speaker_0 -->
             <div class="audio-item">
                 <div class="speaker-info">
-                    <span class="speaker-name">🗣️ Speaker_00 (화자 1)</span>
-                    <span class="speaker-text">"추출된 텍스트 자막을 여기에 적어보세요(ASR 결과)"</span>
+                    <span class="speaker-name">🗣️ Speaker_0 (Radio Comm)</span>
+                    <span class="speaker-text">"Transport 66B, please relay confirm codes. I've got you on the computer
+                        but not on the dialog. What is your haul over?"</span>
                 </div>
-                <!-- 변경점: 여기에 분리된 오디오 파일 경로를 넣으세요 -->
                 <audio controls>
-                    <source src="assets/speaker_00_sample1.wav" type="audio/wav">
+                    <source src="assets/speakers_merged/Speaker_0_merged.wav" type="audio/wav">
                 </audio>
             </div>
 
-            <!-- 오디오 샘플 2 -->
+            <!-- Speaker_1 -->
             <div class="audio-item">
                 <div class="speaker-info">
-                    <span class="speaker-name">🗣️ Speaker_01 (화자 2)</span>
-                    <span class="speaker-text">"두 번째 사람의 음성 인식 결과입니다."</span>
+                    <span class="speaker-name">🗣️ Speaker_1 (Bruce Banner / Hulk)</span>
+                    <span class="speaker-text">"is that Moe, isn't it? What are we, a team? No, no, no. We're a chemical
+                        mixture that makes chaos. We're a time bomb. Yeah, this is a team. You rented my room. In case
+                        you needed to kill me, but you can't. I know, I tried. I got low. I didn't see an end, so I put
+                        a bullet in my mouth, and the other guy spit it out. So I moved on. I focused on helping other
+                        people. I was good until you dragged me back into this freak show and put everyone here at risk.
+                        You wanna know my secret, Agent Romanoff? You wanna know how I stay calm? Sorry kids, you don't
+                        get to see my party trick after all."</span>
                 </div>
-                <!-- 변경점: 여기에 분리된 오디오 파일 경로를 넣으세요 -->
                 <audio controls>
-                    <source src="assets/speaker_01_sample1.wav" type="audio/wav">
+                    <source src="assets/speakers_merged/Speaker_1_merged.wav" type="audio/wav">
                 </audio>
             </div>
 
-            <!-- 오디오 샘플 3 -->
+            <!-- Speaker_2 -->
+            <div class="audio-item">
+                <div class="speaker-info">
+                    <span class="speaker-name">🗣️ Speaker_2 (Tony Stark / Iron Man)</span>
+                    <span class="speaker-text">"Why shouldn't a guy let off a little steam? I'm starting to want you to
+                        make me. Genius billionaire playboy philanthropist. I think I would just cut the wire. You're a
+                        laboratory experiment, Rogers. Everything special about you came out of a bottle. get there
+                        fast. their fastest tesseract belongs on out of god no human is a match you're not going alone
+                        You're not going to stop me? Put on the suit, let's find out. I'm not afraid to hit an old man.
+                        Put on the suit."</span>
+                </div>
+                <audio controls>
+                    <source src="assets/speakers_merged/Speaker_2_merged.wav" type="audio/wav">
+                </audio>
+            </div>
+
+            <!-- Speaker_3 -->
+            <div class="audio-item">
+                <div class="speaker-info">
+                    <span class="speaker-name">🗣️ Speaker_3 (Thor)</span>
+                    <span class="speaker-text">"You speak of control, yet you cause chaos. You people are so petty. and
+                        tiny. Located at the Tesseract. Put on the suit. Yep."</span>
+                </div>
+                <audio controls>
+                    <source src="assets/speakers_merged/Speaker_3_merged.wav" type="audio/wav">
+                </audio>
+            </div>
+
+            <!-- Speaker_4 -->
+            <div class="audio-item">
+                <div class="speaker-info">
+                    <span class="speaker-name">🗣️ Speaker_4 (Steve Rogers / Captain America)</span>
+                    <span class="speaker-text">"Arms and ammunition, over. You know damn well why. Back off. Big man in
+                        a suit of armor. Take that off. What are you? I know guys with none of that worth 10 of you.
+                        I've seen the footage. The only thing you really fight for is yourself. You're not the guy to
+                        make the sacrifice play. To lay down on a wire and let the other guy crawl over you? Always a
+                        way out. You know, you may not be a threat, but you better stop pretending to be a hero. Put on
+                        the suit. Let's go a few rounds. Agent Romanoff, would you escort Dr. Banner back to his room?
+                        The sale was just in case. Dr. Banner. Put down the scepter. I want all of you... I want all of
+                        you. You're not going alone. Put on the suit. Let's find out. Oh my god."</span>
+                </div>
+                <audio controls>
+                    <source src="assets/speakers_merged/Speaker_4_merged.wav" type="audio/wav">
+                </audio>
+            </div>
+
+            <!-- Unknown_0 -->
+            <div class="audio-item">
+                <div class="speaker-info">
+                    <span class="speaker-name">🗣️ Unknown_0 (Noise / Unknown)</span>
+                    <span class="speaker-text">"We're missing about a ton. It's time to call it a day. the team. Well.
+                        Thank you. Thank you."</span>
+                </div>
+                <audio controls>
+                    <source src="assets/speakers_merged/Unknown_0_merged.wav" type="audio/wav">
+                </audio>
+            </div>
+
+            <!-- Background / Instrumental -->
             <div class="audio-item">
                 <div class="speaker-info">
                     <span class="speaker-name">🎵 Background / Instrumental</span>
-                    <span class="speaker-text">(추출되고 남은 깨끗한 배경 음악)</span>
+                    <span class="speaker-text">(The cleanly extracted background music, devoid of vocals)</span>
                 </div>
-                <!-- 변경점: 여기에 분리된 오디오 파일 경로를 넣으세요 -->
                 <audio controls>
                     <source src="assets/instrumental.wav" type="audio/wav">
                 </audio>
@@ -222,4 +302,5 @@
     </footer>
 
 </body>
+
 </html>
