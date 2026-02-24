@@ -57,7 +57,7 @@ protobuf==6.33.5
 pycparser==3.0
 pypinyin==0.44.0
 pytorch-lightning==2.6.1
-pyworld==0.3.5
+pyworld
 PyYAML==6.0.3
 regex==2026.2.19
 requests==2.32.5
